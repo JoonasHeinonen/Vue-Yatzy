@@ -8,9 +8,22 @@
     </head>
     <body>
         <div id="game">
-            <img id="dice" src="graphics/dice_1.png"><br>
-            <button v-on:click="rollDice()">Roll dice!</button>
-            <h2>Times dice thrown: {{ timesThrown }}</h2>
+            <div id="enemy-board">
+                <h1>OPPONENT</h1>
+                <img id="dice-enemy" src="graphics/dice_1.png"><br>
+                <h2>Points of the opponent: {{ opponentPoints }}</h2>
+            </div>
+            <div id="player-board">
+                <h1>YOU</h1>
+                <img id="dice" src="graphics/dice_1.png"><br>
+                <button class="button button2" v-on:click="rollDice('dice')">Roll dice!</button>
+                <h2>Times to throw dice: {{ timesThrow }}</h2>
+                <h2>Value of last thrown: {{ playerThrown }}</h2>
+                <h2>Points of the player: {{ playerPoints }}</h2>
+            </div>
+            <div id="game-footer">
+                <button>Play  Again</Restart>  </button><button>View Score</button>
+            </div>
         </div>
         <script src="js/yatzy.js"></script>
     </body>
