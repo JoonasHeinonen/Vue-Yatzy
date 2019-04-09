@@ -2,12 +2,15 @@ new Vue({
     el: '#game',
     data: {
         gameStarted: false,
-        playedGames: 0
+        timesThrown: 0,
+        throw: 0
     },
     methods: {
         rollDice: function() {
             var dice = document.getElementById('dice');
             var number = Math.floor(Math.random() * 5);
+            this.throw = number;
+            console.log("Value of the latest throw: " + ( 1+ this.throw));
             switch (number) {
                 case 0:
                     dice.src = "graphics/dice_1.png";
@@ -30,6 +33,7 @@ new Vue({
                 default:
                     break;
             }
+            this.timesThrown += 1;
         }
     },
     computed: {

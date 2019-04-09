@@ -8,9 +8,9 @@
     </head>
     <body>
         <div id="game">
-            <h2>Games you have played: {{ playedGames }}</h2>
-            <img id="dice" src="graphics/dice_1.png">
+            <img id="dice" src="graphics/dice_1.png"><br>
             <button v-on:click="rollDice()">Roll dice!</button>
+            <h2>Times dice thrown: {{ timesThrown }}</h2>
         </div>
         <script src="js/yatzy.js"></script>
     </body>
