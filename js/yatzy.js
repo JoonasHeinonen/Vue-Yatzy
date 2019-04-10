@@ -11,10 +11,7 @@ new Vue({
         status: 'Roll the dice!'
     },
     methods: {
-        enemyRollDice: function(argument) {
-            var dice = document.getElementById(argument);
-            var number = Math.floor(Math.random() * 6);
-            this.animateRoll(argument);
+        throwDice: function(dice, number) {
             switch (number) {
                 case 0:
                     dice.src = "graphics/dice_1.png";
@@ -37,8 +34,14 @@ new Vue({
                 default:
                     break;
             }
+        },
+        enemyRollDice: function(argument) {
+            var dice = document.getElementById(argument);
+            var number = Math.floor(Math.random() * 6);
+            this.animateRoll(argument);
             this.opponentThrown = number + 1;
             this.addScore(this.playerThrown, this.opponentThrown);
+            this.throwDice(dice, number);
         },
         rollDice: function(argument) {
             if (this.playGoing) {
@@ -46,31 +49,10 @@ new Vue({
                 var dice = document.getElementById(argument);
                 var number = Math.floor(Math.random() * 6);
                 this.animateRoll(argument);
-                switch (number) {
-                    case 0:
-                        dice.src = "graphics/dice_1.png";
-                        break;
-                    case 1:
-                        dice.src = "graphics/dice_2.png";
-                        break;
-                    case 2:
-                        dice.src = "graphics/dice_3.png";
-                        break;
-                    case 3:
-                        dice.src = "graphics/dice_4.png";
-                        break;
-                    case 4:
-                        dice.src = "graphics/dice_5.png";
-                        break;
-                    case 5:
-                        dice.src = "graphics/dice_6.png";
-                        break;
-                    default:
-                        break;
-                }
                 this.playerThrown = number + 1;
                 this.timesThrow -= 1;
                 this.enemyRollDice('dice-enemy');
+                this.throwDice(dice, number);
                 if (this.playGoing == true && this.timesThrow == 0) {
                     this.playGoing = false;
                     if (this.timesThrow <= 0) {
