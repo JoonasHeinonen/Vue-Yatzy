@@ -76,8 +76,12 @@ button:hover {
     border-bottom: 2px solid rgb(16, 118, 165);
 }
 
-#dice, #dice-enemy {
+#dice, #dice-enemy, #vue-logo {
     display: block;
     margin: auto;
+    
+}
+
+#dice, #dice-enemy {
     transition: 0.3s;
 }
