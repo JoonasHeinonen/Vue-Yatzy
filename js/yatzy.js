@@ -6,12 +6,15 @@ new Vue({
         opponentThrown: 0,
         opponentPoints: 0,
         playerPoints: 0,
-        playGoing: true
+        playGoing: true,
+        degrees: 90,
+        status: 'Roll the dice!'
     },
     methods: {
         enemyRollDice: function(argument) {
             var dice = document.getElementById(argument);
             var number = Math.floor(Math.random() * 6);
+            this.animateRoll(argument);
             switch (number) {
                 case 0:
                     dice.src = "graphics/dice_1.png";
@@ -35,13 +38,14 @@ new Vue({
                     break;
             }
             this.opponentThrown = number + 1;
-            console.log("Your dice: " + this.playerThrown + " Opponent's dice: " + this.opponentThrown);
             this.addScore(this.playerThrown, this.opponentThrown);
         },
         rollDice: function(argument) {
             if (this.playGoing) {
+                this.playSound('sounds/dice.wav');
                 var dice = document.getElementById(argument);
                 var number = Math.floor(Math.random() * 6);
+                this.animateRoll(argument);
                 switch (number) {
                     case 0:
                         dice.src = "graphics/dice_1.png";
@@ -80,28 +84,53 @@ new Vue({
                 this.playerPoints += 1;
             } else if (oThrow > pThrow) {
                 this.opponentPoints += 1;
-            } else if (oThrow == pThrow) {
-                console.log('Even throws!');
             }
         },
         findWinner: function(pPoints, oPoints) {
-            var sentence = ' ';
+            this.status = ' ';
+            var sentence = "is the winner!";
             if (pPoints > oPoints) {
-                sentence += "Congratulations! You scored better than computer!";
+                this.status += "Player " + sentence;
+                this.playSound('sounds/win.wav');
             } else if (oPoints > pPoints) {
-                sentence += "Computer won this round.";
+                this.status += "Computer " + sentence;
+                this.playSound('sounds/failure.wav');
             } else if (oPoints == pPoints) {
-                sentence += "Game is even.";
+                this.status += "Game is even.";
             }
-            alert(sentence);
         },
         restart: function() {
+            var dice = document.getElementById('dice');
+            var diceEnemy = document.getElementById('dice-enemy');
+            this.resetAll();
+            this.animateRoll('dice');
+            this.animateRoll('dice-enemy');
+            dice.src = "graphics/dice_1.png";
+            diceEnemy.src = "graphics/dice_1.png";
+        },
+        animateRoll: function(argument) {
+            var dice = document.getElementById(argument);
+            dice.style.transform = "rotate(" + this.degrees + "deg)";
+            if (this.degrees > 180) {
+                this.degrees = 0;
+            }
+            this.degrees += 90;
+        },
+        resetAll: function() {
+            this.playSound('sounds/dice.wav');
             this.timesThrow = 10;
             this.playerThrown = 0;
             this.opponentThrown = 0;
             this.opponentPoints = 0;
             this.playerPoints = 0;
             this.playGoing = true;
+            this.status = 'Roll the dice!';
+        },
+        playSound: function(sound) {
+            if(sound) {
+                var audio = new Audio(sound);
+                audio.play();
+            }
         }
     },
     computed: {
