@@ -1,7 +1,6 @@
 new Vue({
     el: '#game',
     data: {
-        gameStarted: false,
         timesThrow: 10,
         playerThrown: 0,
         opponentThrown: 0,
@@ -95,9 +94,17 @@ new Vue({
                 sentence += "Game is even.";
             }
             alert(sentence);
+        },
+        restart: function() {
+            this.timesThrow = 10;
+            this.playerThrown = 0;
+            this.opponentThrown = 0;
+            this.opponentPoints = 0;
+            this.playerPoints = 0;
+            this.playGoing = true;
         }
     },
     computed: {
-
+        
     }
 });

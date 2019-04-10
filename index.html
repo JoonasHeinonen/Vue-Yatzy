@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Vue-Yatzy</title>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+        <link rel="icon" href="graphics/vue-yatzy-logo.png" type="image/png"/>
         <link rel="stylesheet" type="text/css" href="style/style.css">
     </head>
     <body>
@@ -22,7 +23,10 @@
                 <h2>Points of the player: {{ playerPoints }}</h2>
             </div>
             <div id="game-footer">
-                <button>Play  Again</Restart>  </button><button>View Score</button>
+                <div id="controls">
+                    <button class="button1" v-on:click="restart">Play  Again</button>
+                    <button class="button1">View Score</button>
+                </div>
             </div>
         </div>
         <script src="js/yatzy.js"></script>
