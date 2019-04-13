@@ -44,12 +44,32 @@ button:hover {
     transition: 0.2s;
 }
 
-#game {
+#game-area, #score-area {
     margin: auto;
     width: 420px;
     padding: 16px;
     border: 2px solid rgb(16, 118, 165);
     border-radius: 12px;
+    padding-bottom: 10px;
+    transition: 0.5s;
+}
+
+#score-area {
+    margin-top: 16px;
+    display: none;
+}
+
+table {
+    color: rgb(16, 118, 165);
+    font-size: 20px;
+    margin: auto;
+}
+
+#score-area th {
+    text-align: justify;
+    margin: 16px;
+    padding: 8px;
+    width: 80%;
 }
 
 #enemy-board {
@@ -58,7 +78,6 @@ button:hover {
 }
 
 #player-board {
-    width: 100%;
     border-top: 1px solid rgb(16, 118, 165);
 }
 

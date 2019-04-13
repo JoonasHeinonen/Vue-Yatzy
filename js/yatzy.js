@@ -8,7 +8,13 @@ new Vue({
         playerPoints: 0,
         playGoing: true,
         degrees: 90,
-        status: 'Roll the dice!'
+        status: 'Roll the dice!',
+        scoreVisible: false,
+        // Datatypes to demonstrate the scoring in only one session, will be updated to an database that updates every game
+        gamesPlayed: 0,
+        gamesWon: 0,
+        gamesLost: 0,
+        gamesEven: 0
     },
     methods: {
         throwDice: function(dice, number) {
@@ -69,15 +75,19 @@ new Vue({
             }
         },
         findWinner: function(pPoints, oPoints) {
+            this.gamesPlayed++;
             this.status = ' ';
             var sentence = "is the winner!";
             if (pPoints > oPoints) {
+                this.gamesWon++;
                 this.status += "Player " + sentence;
                 this.playSound('sounds/win.wav');
             } else if (oPoints > pPoints) {
+                this.gamesLost++;
                 this.status += "Computer " + sentence;
                 this.playSound('sounds/failure.wav');
             } else if (oPoints == pPoints) {
+                this.gamesEven++;
                 this.status += "Game is even.";
             }
         },
@@ -113,6 +123,22 @@ new Vue({
                 var audio = new Audio(sound);
                 audio.play();
             }
+        },
+        changeScoreVisible: function() {
+            if (this.scoreVisible == true) {
+                this.scoreVisible = false;
+                this.displayScore();
+            } else if (this.scoreVisible == false) {
+                this.scoreVisible = true;
+                this.displayScore();
+            }
+        },
+        displayScore: function() {
+            if (this.scoreVisible == false) {
+                document.getElementById("score-area").style.display = "none";
+            } else if (this.scoreVisible == true) {
+                document.getElementById("score-area").style.display = "block";
+            } 
         }
     },
     computed: {
