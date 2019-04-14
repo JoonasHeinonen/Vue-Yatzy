@@ -64,7 +64,7 @@ button:hover {
 
 #score-area {
     margin-top: 8px;
-    height: 3em;
+    height: 3.4em;
     transition-property: height;
     transition-duration: .3s;
 }
