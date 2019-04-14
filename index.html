@@ -21,9 +21,16 @@
                     <h1>YOU</h1>
                     <img id="dice" src="graphics/dice_1.png"><br>
                     <button class="button button2" v-on:click="rollDice('dice')">Roll dice!</button>
-                    <h2>Times to throw dice: {{ timesThrow }}</h2>
-                    <h2>Value of last thrown: {{ playerThrown }}</h2>
-                    <h2>Points of the player: {{ playerPoints }}</h2>
+                    <table>
+                        <tr>
+                            <th>Times to throw dice:</th>
+                            <th>{{ timesThrow }}</th>
+                        </tr>
+                        <tr>
+                            <th>Points of the player:</th>
+                            <th>{{ playerPoints }}</th>
+                        </tr>
+                    </table>
                 </div>
                 <div id="game-footer">
                     <div id="controls">
@@ -31,36 +38,38 @@
                             <h2>{{ status }}</h2>
                         </div>
                         <button class="button1" v-on:click="restart">Play  Again</button>
-                        <button class="button1" v-on:click="changeScoreVisible()">View Score</button>
+                        <button class="button1" id="score-button" v-on:click="displayScore()">View Score</button>
                     </div>
                 </div>
             </div>
             <div id="score-area">
                 <h1>SCORES</h1>
-                <table>
-                    <tr>
-                        <th>Games total played</th>
-                        <th>{{ gamesPlayed }}</th>
-                    </tr>
-                    <tr>
-                        <th>Games won by player</td>
-                        <th>{{ gamesWon }}</td>
-                    </tr>
-                    <tr>
-                        <th>Games won by computer</th>
-                        <th>{{ gamesLost }}</th>
-                    </tr>
-                    <tr>
-                        <th>Even games</td>
-                        <th>{{ gamesEven }}</td>
-                    </tr>
-                </table>
+                <div id="score-content">
+                    <table>
+                        <tr>
+                            <th>Games total played</th>
+                            <th>{{ gamesPlayed }}</th>
+                        </tr>
+                        <tr>
+                            <th>Games won by player</td>
+                            <th>{{ gamesWon }}</td>
+                        </tr>
+                        <tr>
+                            <th>Games won by computer</th>
+                            <th>{{ gamesLost }}</th>
+                        </tr>
+                        <tr>
+                            <th>Even games</td>
+                            <th>{{ gamesEven }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="footer">
+                <h2>Game programmed and created by Joonas Heinonen. (Still in development)</h2>
+                <h2>Powered with Vue.js</h2><img src='graphics/vue-logo.png' id="vue-logo"></div>
             </div>
         </div>
         <script src="js/yatzy.js"></script>
-        <footer>
-            <h2>Game programmed and created by Joonas Heinonen. (Still in development)</h2>
-            <h2>Powered with Vue.js</h2><img src='graphics/vue-logo.png' id="vue-logo"></div>
-        </footer>
     </body>
 </html>

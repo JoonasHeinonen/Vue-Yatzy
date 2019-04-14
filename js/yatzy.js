@@ -124,21 +124,11 @@ new Vue({
                 audio.play();
             }
         },
-        changeScoreVisible: function() {
-            if (this.scoreVisible == true) {
-                this.scoreVisible = false;
-                this.displayScore();
-            } else if (this.scoreVisible == false) {
-                this.scoreVisible = true;
-                this.displayScore();
-            }
-        },
         displayScore: function() {
-            if (this.scoreVisible == false) {
-                document.getElementById("score-area").style.display = "none";
-            } else if (this.scoreVisible == true) {
-                document.getElementById("score-area").style.display = "block";
-            } 
+            var scoreArea = document.querySelector('#score-area');
+            var content = document.querySelector('#score-content');
+            scoreArea.classList.toggle('expand');
+            content.classList.toggle('visible');
         }
     },
     computed: {
