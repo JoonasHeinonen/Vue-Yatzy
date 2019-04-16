@@ -1,37 +1,24 @@
 * {
     font-family: "Bookman Old Style";
+    background-color: rgb(0, 52, 119);
+    color: rgb(16, 118, 165);
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-body {
-    background-color: rgb(0, 52, 119);
-    height: 100%;
-}
-
-h1, h2 {
-    text-align: center;
-    color: rgb(16, 118, 165);
+h1 {
     font-size: 20px;
 }
 
-h2 {
-    font-size: 16px;
-}
-
-button {
-    color: rgb(16, 118, 165);
-    background-color: rgb(0, 52, 119);
+button, #game-area, #score-area {
     border: 2px solid rgb(16, 118, 165);
-    font-size: 16px;
-    font-weight: bold;
     outline:0px;
-    padding: 4px;
     border-radius: 12px;
-    transition: 0.2s;
 }
 
 .button1 {
@@ -43,22 +30,20 @@ button {
 
 .button2 {
     display: flex; 
-    margin: auto;
 }
 
 button:hover {
     color: rgb(70, 196, 255);
     border: 2px solid rgb(70, 196, 255);
+}
+
+button, button:hover {
     transition: 0.2s;
 }
 
 #game-area, #score-area {
     margin: auto;
     width: 320px;
-    height: 100%;
-    padding: 8px;
-    border: 2px solid rgb(16, 118, 165);
-    border-radius: 12px;
     padding-bottom: 4px;
 }
 
@@ -69,11 +54,6 @@ button:hover {
     transition-duration: .3s;
 }
 
-#placeholder-score {
-    min-height: 200px;
-    padding-bottom: 8px;
-}
-
 #score-area.expand {
     height: 184px;
 }
@@ -81,12 +61,10 @@ button:hover {
 #score-content.visible {
     opacity: 1;
     animation: fadeIn .6s ease-in;
-    display: block;
 }
 
 #score-content {
     opacity: 0;
-    display: none;
 }
 
 @keyframes fadeIn {
@@ -98,61 +76,37 @@ button:hover {
     }
 }
 
-table {
-    color: rgb(16, 118, 165);
-    font-size: 16px;
-    margin: auto;
-}
-
-th {
-    margin: 2px;
-    padding: 4px;
+#score-area th, th {
+    margin: 8px;
     text-align: justify;
 }
 
-#score-area th {
-    margin: 2px;
+button, th, #score-area th {
     padding: 4px;
 }
 
-#enemy-board {
-    width: 100%;
-    border-bottom: 1px solid rgb(16, 118, 165);
+#enemy-board, #winner {
+    border-bottom: 2px solid rgb(16, 118, 165);
 }
 
-#player-board {
-    border-top: 1px solid rgb(16, 118, 165);
+#controls, #footer {
+    border-top: 2px solid rgb(16, 118, 165);
 }
 
-#game-footer {
-    border-top: 1px solid rgb(16, 118, 165);
+#game-footer, #footer, h1, h2 {
     text-align: center
 }
 
-#controls {
-    border-top: 1px solid rgb(16, 118, 165);
-    margin: 0 auto;
-}
-
-#winner {
-    border-bottom: 2px solid rgb(16, 118, 165);
+#controls, #dice, #dice-enemy, #vue-logo, table, .button2 {
+    margin: auto;
 }
 
 #dice, #dice-enemy, #vue-logo {
     display: block;
-    margin: auto;
-}
-
-#dice, #dice-enemy {
     transition: 0.3s;
 }
 
-#footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    display: block;
-    border-top: 2px solid rgb(16, 118, 165);
+#placeholder-score {
+    min-height: 192px;
+    padding-bottom: 8px;
 }
