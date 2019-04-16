@@ -9,6 +9,7 @@
             animation: fadein 2s;
     font-size: 16px;
     font-weight: bold;
+    text-align: center
 }
 
 h1 {
@@ -18,27 +19,20 @@ h1 {
 button, #game-area, #score-area {
     border: 2px solid rgb(16, 118, 165);
     outline:0px;
-    border-radius: 12px;
+    border-radius: 8px;
+    padding: 4px;
 }
 
 .button1 {
     position: relative;
-    width: 120px;
-    margin: 10px 5px;
+    width: 149px;
+    margin: 10px 2.5px;
     margin-bottom: 5px;
-}
-
-.button2 {
-    display: flex; 
 }
 
 button:hover {
     color: rgb(70, 196, 255);
     border: 2px solid rgb(70, 196, 255);
-}
-
-button, button:hover {
-    transition: 0.2s;
 }
 
 #game-area, #score-area {
@@ -47,15 +41,22 @@ button, button:hover {
     padding-bottom: 4px;
 }
 
+#dice, #dice-enemy, #vue-logo, #score-area, button, button:hover {
+    transition: .3s;
+}
+
+#dice, #dice-enemy, #vue-logo {
+    display: block;
+}
+
 #score-area {
     margin-top: 8px;
     height: 3.4em;
     transition-property: height;
-    transition-duration: .3s;
 }
 
 #score-area.expand {
-    height: 184px;
+    height: 180px;
 }
 
 #score-content.visible {
@@ -77,33 +78,20 @@ button, button:hover {
 }
 
 #score-area th, th {
-    margin: 8px;
     text-align: justify;
-}
-
-button, th, #score-area th {
     padding: 4px;
 }
 
-#enemy-board, #winner {
+#enemy-board, #player-board, #winner {
     border-bottom: 2px solid rgb(16, 118, 165);
 }
 
-#controls, #footer {
+#footer {
     border-top: 2px solid rgb(16, 118, 165);
-}
-
-#game-footer, #footer, h1, h2 {
-    text-align: center
 }
 
 #controls, #dice, #dice-enemy, #vue-logo, table, .button2 {
     margin: auto;
-}
-
-#dice, #dice-enemy, #vue-logo {
-    display: block;
-    transition: 0.3s;
 }
 
 #placeholder-score {
