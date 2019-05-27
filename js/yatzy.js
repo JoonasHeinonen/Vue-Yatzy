@@ -51,7 +51,7 @@ new Vue({
         },
         rollDice: function(argument) {
             if (this.playGoing) {
-                this.playSound('sounds/win.wav');
+                this.playSound('sounds/dice.wav');
                 var dice = document.getElementById(argument);
                 var number = Math.floor(Math.random() * 6);
                 this.animateRoll(argument);
@@ -109,7 +109,7 @@ new Vue({
             this.degrees += 90;
         },
         resetAll: function() {
-            this.playSound('sounds/win.wav');
+            this.playSound('sounds/dice.wav');
             this.timesThrow = 10;
             this.playerThrown = 0;
             this.opponentThrown = 0;
