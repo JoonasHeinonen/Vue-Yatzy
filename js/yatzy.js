@@ -51,7 +51,7 @@ new Vue({
         },
         rollDice: function(argument) {
             if (this.playGoing) {
-                this.playSound('sounds/dice.wav');
+                this.playSound('sounds/win.wav');
                 var dice = document.getElementById(argument);
                 var number = Math.floor(Math.random() * 6);
                 this.animateRoll(argument);
