@@ -109,7 +109,7 @@ new Vue({
             this.degrees += 90;
         },
         resetAll: function() {
-            this.playSound('sounds/dice.wav');
+            this.playSound('sounds/win.wav');
             this.timesThrow = 10;
             this.playerThrown = 0;
             this.opponentThrown = 0;
